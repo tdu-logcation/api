@@ -4,6 +4,8 @@
 
 [MIT](./LICENSE)
 
+## Routes
+
 - /user
   - POST
     - アカウント作成
@@ -21,3 +23,20 @@
 - /rank
   - GET
     - ランキング取得
+
+## Testing
+
+### Local
+
+[Datasotoreエミュレータ](https://cloud.google.com/datastore/docs/tools/datastore-emulator#linux-macos)をインストールしてください。
+
+```bash
+# datastoreのエミュレータを実行
+gcloud beta emulators datastore start --data-dir=.
+
+# 環境変数設定
+$(gcloud beta emulators datastore env-init)
+
+# datasoreをクリーンアップ
+rm -rf ./WEB_INF
+```
