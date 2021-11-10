@@ -1,8 +1,12 @@
 # Logcation API
 
-## LICENSE
+LogcationのAPIです。
 
-[MIT](./LICENSE)
+- ログデータのクラウド保存
+- ログデータの複数端末同期
+- オンラインランキング
+
+を提供します。
 
 ## Routes
 
@@ -40,3 +44,7 @@ $(gcloud beta emulators datastore env-init)
 # datasoreをクリーンアップ
 rm -rf ./WEB_INF
 ```
+
+## LICENSE
+
+[MIT](./LICENSE)

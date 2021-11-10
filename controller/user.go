@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"errors"
 	"sort"
 
 	"cloud.google.com/go/datastore"
@@ -83,6 +84,9 @@ func (c *User) ChangeName(id string, name string) error {
 	if err != nil {
 		return err
 	}
+	if userInfo == nil {
+		return errors.New("no user")
+	}
 
 	userInfo.Name = name
 
@@ -116,6 +120,11 @@ func (c *User) Rank() ([]string, error) {
 
 	for _, element := range posts {
 		rank = append(rank, element.Name)
+	}
+
+	// reverse rank
+	for i, j := 0, len(rank)-1; i < j; i, j = i+1, j-1 {
+		rank[i], rank[j] = rank[j], rank[i]
 	}
 
 	return rank, nil
