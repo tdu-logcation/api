@@ -1,5 +1,5 @@
 # アカウント作成
-POST http://192.168.3.253:3000/user
+POST https://api.tdu.app/user
 Content-Type: application/x-www-form-urlencoded
 
 # ユーザ名
@@ -8,26 +8,26 @@ user_name=[user name]
 ###
 # ユーザ情報取得
 
-GET http://192.168.3.253:3000/user?id=[id]
+GET https://api.tdu.app/user?id=[id]
 
 ###
 # 名前変更
-POST http://192.168.3.253:3000/user
+POST https://api.tdu.app/user
 Content-Type: application/x-www-form-urlencoded
 
 id=[id]&user_name=[new user name]
 
 ###
 # アカウント削除
-DELETE http://192.168.3.253:3000/user?id=[id]
+DELETE https://api.tdu.app/user?id=[id]
 
 ###
 # ログ取得
-GET http://192.168.3.253:3000/log?id=[id]
+GET https://api.tdu.app/log?id=[id]
 
 ###
 # ログ追加
-POST http://192.168.3.253:3000/log
+POST https://api.tdu.app/log
 Content-Type: application/x-www-form-urlencoded
 
 // dateはRFC3339Nano形式
@@ -35,4 +35,4 @@ id=[id]&date=2013-09-02T01:55:20.120Z&campus=千住&log_type=1&code=2000
 
 ###
 # ランキング
-GET http://192.168.3.253:3000/rank
+GET https://api.tdu.app/rank

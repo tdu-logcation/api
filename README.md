@@ -8,25 +8,82 @@ LogcationのAPIです。
 
 を提供します。
 
-## Routes
+## API仕様
 
-- /user
-  - POST
-    - アカウント作成
-    - ユーザ名設定（変更）
-  - GET
-    - ユーザ情報取得
-      - 名前とかログ数とか？
-  - DELETE
-    - アカウント削除
-- /log
-  - POST
-    - ログ追加
-  - GET
-    - ログ取得
-- /rank
-  - GET
-    - ランキング取得
+### アカウント作成
+
+```text
+POST https://api.tdu.app/user
+Content-Type: application/x-www-form-urlencoded
+
+user_name=[user name]
+```
+
+- form
+  - user_name: ユーザ名
+
+### ユーザ情報取得
+
+```text
+GET https://api.tdu.app/user?id=[id]
+```
+
+- query
+  - id: アカウント作成時に返ってくるid
+
+### ユーザ名変更
+
+```text
+POST https://api.tdu.app/user
+Content-Type: application/x-www-form-urlencoded
+
+id=[id]&user_name=[new user name]
+```
+
+- form
+  - id: アカウント作成時に返ってくるid
+  - user_name: 新しいユーザ名
+
+### アカウント（ログ含め）削除
+
+```text
+DELETE https://api.tdu.app/user?id=[id]
+```
+
+- query
+  - id: アカウント作成時に返ってくるid
+
+### ログ取得
+
+```text
+GET https://api.tdu.app/log?id=[id]
+```
+
+- query
+  - id: アカウント作成時に返ってくるid
+
+### ログ追加
+
+```text
+POST https://api.tdu.app/log
+Content-Type: application/x-www-form-urlencoded
+
+id=[id]&date=[date]&campus=[campus]&log_type=[type]&code=[code]
+```
+
+- form
+  - id: アカウント作成時に返ってくるid
+  - date: ログ取得日時（RFC3339Nano形式）
+  - campus: キャンパス
+  - log_type: ログの種類
+  - label: ラベル
+  - code: ログ
+
+### ランキング
+
+```text
+GET https://api.tdu.app/rank
+```
 
 ## Testing
 
