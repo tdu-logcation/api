@@ -77,6 +77,19 @@ func LogPostHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	user, err := controller.NewUser(&ctx)
+	if err != nil {
+		logrus.Error(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	if err := user.PlusLog(id); err != nil {
+		logrus.Error(err)
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
 	log, err := controller.NewLog(&ctx, id)
 	if err != nil {
 		logrus.Error(err)

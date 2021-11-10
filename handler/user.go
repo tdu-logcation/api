@@ -26,10 +26,6 @@ func UserPostHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	r.ParseForm()
-	// 処理タイプ
-	//	create: アカウント作成
-	//	name: ユーザ名変更
-	opType := r.PostFormValue("op_type")
 
 	// ユーザ名
 	// アカウント作成、ユーザ名変更どちらも必須
@@ -46,7 +42,7 @@ func UserPostHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if opType == "create" {
+	if len(id) == 0 {
 		// アカウント作成
 		info, err := user.Add(userName)
 		if err != nil {
