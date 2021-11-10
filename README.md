@@ -1,1 +1,5 @@
-# ranking-api
+# Logcation API
+
+## LICENSE
+
+[MIT](./LICENSE)
