@@ -26,6 +26,9 @@ func main() {
 
 	// Routes
 	mux.HandleFunc("/", handler.RootHandler)
+	mux.HandleFunc("/user", handler.UserHandler)
+	mux.HandleFunc("/log", handler.LogHandler)
+	mux.HandleFunc("/rank", handler.RnakingHandler)
 
 	corsConfig := utils.CorsConfig()
 	handler := corsConfig.Handler(mux)

@@ -1,6 +1,10 @@
 package utils
 
-import "cloud.google.com/go/datastore"
+import (
+	"strings"
+
+	"cloud.google.com/go/datastore"
+)
 
 func CreateKey(kind string, keys ...string) *datastore.Key {
 	if len(keys) == 0 {
@@ -8,4 +12,8 @@ func CreateKey(kind string, keys ...string) *datastore.Key {
 	}
 
 	return datastore.NameKey(kind, keys[0], nil)
+}
+
+func ConvertUserIdKey(id string) string {
+	return strings.Join([]string{"user", id}, ":")
 }
