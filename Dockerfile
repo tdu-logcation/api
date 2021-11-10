@@ -6,6 +6,10 @@ WORKDIR /go/src
 COPY go.mod go.sum ./
 RUN go mod download
 
+COPY ./controller ./controller/
+COPY ./database ./database/
+COPY ./handler ./handler/
+COPY ./utils ./utils/
 COPY ./main.go ./
 
 ARG CGO_ENABLED=0
