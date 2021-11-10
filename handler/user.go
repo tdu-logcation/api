@@ -37,7 +37,7 @@ func UserPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	// ユーザのID
 	// ユーザ名変更時のみ使用
-	id := r.PostFormValue("user_name")
+	id := r.PostFormValue("id")
 
 	user, err := controller.NewUser(&ctx)
 	if err != nil {
