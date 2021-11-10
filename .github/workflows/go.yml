@@ -10,6 +10,16 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    services:
+      datastore:
+        image: singularities/datastore-emulator
+        env:
+          DATASTORE_LISTEN_ADDRESS: 0.0.0.0:18001
+          DATASTORE_PROJECT_ID: budougumi0617
+        ports:
+          - 18001:18001
+    env:
+      DATASTORE_EMULATOR_HOST: localhost:18001
     steps:
     - uses: actions/checkout@v2
 
