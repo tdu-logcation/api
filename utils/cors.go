@@ -15,7 +15,7 @@ func CorsConfig() *cors.Cors {
 		AllowedMethods: []string{
 			"GET",
 			"POST",
-			"DELETE"
-		}
+			"DELETE",
+		},
 	})
 }
