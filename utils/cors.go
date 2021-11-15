@@ -12,5 +12,10 @@ func CorsConfig() *cors.Cors {
 			"https://localhost:3000",
 		},
 		AllowCredentials: true,
+		AllowedMethods: []string{
+			"GET",
+			"POST",
+			"DELETE"
+		}
 	})
 }
