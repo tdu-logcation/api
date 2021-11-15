@@ -73,7 +73,7 @@ id=[id]&date=[date]&campus=[campus]&log_type=[type]&code=[code]
 
 - form
   - id: アカウント作成時に返ってくるid
-  - date: ログ取得日時（RFC3339Nano形式）
+  - date: ログ取得日時（RFC3339形式）
   - campus: キャンパス
   - log_type: ログの種類
   - label: ラベル

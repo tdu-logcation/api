@@ -69,8 +69,8 @@ func LogPostHandler(w http.ResponseWriter, r *http.Request) {
 	label := r.PostFormValue("label")
 	code := r.PostFormValue("code")
 
-	// dateはRFC3339Nano形式を前提とする
-	timeDate, err := time.Parse(time.RFC3339Nano, date)
+	// dateはRFC3339形式を前提とする
+	timeDate, err := time.Parse(time.RFC3339, date)
 	if err != nil {
 		logrus.Error(err)
 		w.WriteHeader(http.StatusBadRequest)

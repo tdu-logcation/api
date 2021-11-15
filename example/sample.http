@@ -30,7 +30,7 @@ GET https://api.tdu.app/log?id=[id]
 POST https://api.tdu.app/log
 Content-Type: application/x-www-form-urlencoded
 
-// dateはRFC3339Nano形式
+// dateはRFC3339形式
 id=[id]&date=2013-09-02T01:55:20.120Z&campus=千住&log_type=1&code=2000
 
 ###
