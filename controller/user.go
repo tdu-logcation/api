@@ -111,7 +111,7 @@ func (c *User) Rank() (database.Ranks, error) {
 		return nil, err
 	}
 
-	var ranks database.Ranks
+	var ranks database.Ranks = []database.Rank{}
 
 	for _, value := range posts {
 		ranks = append(ranks, database.Rank{
