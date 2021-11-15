@@ -43,3 +43,22 @@ func (u Users) Swap(i, j int) {
 func (u Users) Less(i, j int) bool {
 	return u[i].NumberOfLogs < u[j].NumberOfLogs
 }
+
+type Rank struct {
+	Name         string `json:"name"`
+	NumberOfLogs int    `json:"number_of_logs"`
+}
+
+type Ranks []Rank
+
+func (r Ranks) Len() int {
+	return len(r)
+}
+
+func (r Ranks) Swap(i, j int) {
+	r[i], r[j] = r[j], r[i]
+}
+
+func (r Ranks) Less(i, j int) bool {
+	return r[i].NumberOfLogs < r[j].NumberOfLogs
+}

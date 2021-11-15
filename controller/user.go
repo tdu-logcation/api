@@ -102,27 +102,30 @@ func (c *User) createKey(id string) *datastore.Key {
 }
 
 // ランキング取得
-func (c *User) Rank() ([]string, error) {
+func (c *User) Rank() (database.Ranks, error) {
 	query := datastore.NewQuery("users")
-	var posts database.Users
+	var posts []database.User
 
 	_, err := c.database.GetAll(query, &posts)
 	if err != nil {
 		return nil, err
 	}
 
-	sort.Sort(posts)
+	var ranks database.Ranks
 
-	rank := []string{}
-
-	for _, element := range posts {
-		rank = append(rank, element.Name)
+	for _, value := range posts {
+		ranks = append(ranks, database.Rank{
+			Name:         value.Name,
+			NumberOfLogs: value.NumberOfLogs,
+		})
 	}
+
+	sort.Sort(ranks)
 
 	// reverse rank
-	for i, j := 0, len(rank)-1; i < j; i, j = i+1, j-1 {
-		rank[i], rank[j] = rank[j], rank[i]
+	for i, j := 0, len(ranks)-1; i < j; i, j = i+1, j-1 {
+		ranks[i], ranks[j] = ranks[j], ranks[i]
 	}
 
-	return rank, nil
+	return ranks, nil
 }

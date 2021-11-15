@@ -26,7 +26,7 @@ func RnakingHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// []string を byteに変換
+	// Ranks を byteに変換
 	body, err := utils.ToJson(rank)
 	if err != nil {
 		logrus.Error(err)
