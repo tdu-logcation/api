@@ -11,6 +11,6 @@ func CorsConfig() *cors.Cors {
 			"https://127.0.0.1:3000",
 			"https://localhost:3000",
 		},
-		Debug: false,
+		AllowCredentials: true,
 	})
 }
