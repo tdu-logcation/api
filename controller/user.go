@@ -31,10 +31,7 @@ func (c *User) Add(name string) (*database.User, error) {
 	if err != nil {
 		return nil, err
 	}
-	now, err := utils.NowTime()
-	if err != nil {
-		return nil, err
-	}
+	now := utils.NowTime()
 
 	userInfo := database.User{
 		Id:           id,

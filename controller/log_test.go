@@ -22,10 +22,7 @@ func TestLog(t *testing.T) {
 	}
 
 	campus := "千住"
-	date, err := utils.NowTime()
-	if err != nil {
-		t.Fatal(err)
-	}
+	date := utils.NowTime()
 	logType := "0"
 	label := ""
 	code := "jp.ac.dendai/2403-2A"
