@@ -59,7 +59,7 @@ func (c *Log) Add(campus string, date time.Time, logType string, label string, c
 // 全ログ取得
 func (c *Log) GetLogs() (*[]database.Log, error) {
 	query := datastore.NewQuery(c.userIdKey)
-	var posts []database.Log
+	var posts []database.Log = []database.Log{}
 
 	_, err := c.database.GetAll(query, &posts)
 	if err != nil {
