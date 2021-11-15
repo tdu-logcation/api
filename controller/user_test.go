@@ -181,13 +181,13 @@ func TestRank(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if rank[0] != names[2] {
+	if rank[0].Name != names[2] {
 		t.Fatalf("ランキング1位が違います: %v", rank)
 	}
-	if rank[1] != names[0] {
+	if rank[1].Name != names[0] {
 		t.Fatalf("ランキング2位が違います: %v", rank)
 	}
-	if rank[2] != names[1] {
+	if rank[2].Name != names[1] {
 		t.Fatalf("ランキング3位が違います: %v", rank)
 	}
 }
