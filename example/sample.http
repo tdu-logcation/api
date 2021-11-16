@@ -28,10 +28,21 @@ GET https://api.tdu.app/log?id=[id]
 ###
 # ログ追加
 POST https://api.tdu.app/log
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
-// dateはRFC3339形式
-id=[id]&date=2013-09-02T01:55:20.120Z&campus=千住&log_type=1&code=2000
+{
+    "id": "[id]",
+    "logs": [
+        {
+            // dateはRFC3339形式
+            "date": "2013-09-02T01:55:20.120Z",
+            "campus": "千住",
+            "log_type": "1",
+            "label": "",
+            "code": "2000"
+        }
+    ]
+}
 
 ###
 # ランキング

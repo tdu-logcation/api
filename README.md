@@ -69,7 +69,7 @@ POST https://api.tdu.app/log
 Content-Type: application/json
 
 {
-    "id": [id]
+    "id": [id],
     "logs": [
         {
             "date": [date],
