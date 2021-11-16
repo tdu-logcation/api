@@ -7,6 +7,8 @@ import (
 
 	"github.com/tdu-logcation/api/handler"
 	"github.com/tdu-logcation/api/utils"
+	"golang.org/x/net/http2"
+	"golang.org/x/net/http2/h2c"
 )
 
 var port string
@@ -23,6 +25,7 @@ func init() {
 
 func main() {
 	mux := http.NewServeMux()
+	h2s := &http2.Server{}
 
 	// Routes
 	mux.HandleFunc("/", handler.RootHandler)
@@ -33,7 +36,12 @@ func main() {
 	corsConfig := utils.CorsConfig()
 	handler := corsConfig.Handler(mux)
 
-	if err := http.ListenAndServe(port, handler); err != nil {
+	server := &http.Server{
+		Addr:    strings.Join([]string{"0.0.0.0", port}, ""),
+		Handler: h2c.NewHandler(handler, h2s),
+	}
+
+	if err := server.ListenAndServe(); err != nil {
 		panic(err)
 	}
 }

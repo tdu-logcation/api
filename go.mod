@@ -22,7 +22,7 @@ require (
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
 	go.opencensus.io v0.23.0 // indirect
-	golang.org/x/net v0.0.0-20211109214657-ef0fda0de508 // indirect
+	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
 	golang.org/x/sys v0.0.0-20211109184856-51b60fd695b3 // indirect
 	golang.org/x/text v0.3.7 // indirect
