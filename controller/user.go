@@ -65,13 +65,13 @@ func (c *User) set(id string, entity *database.User) error {
 }
 
 // ログ数をインクリメントする
-func (c *User) PlusLog(id string) error {
+func (c *User) PlusLog(id string, pulsValue int) error {
 	userInfo, err := c.Get(id)
 	if err != nil {
 		return err
 	}
 
-	userInfo.NumberOfLogs++
+	userInfo.NumberOfLogs += pulsValue
 
 	return c.set(id, userInfo)
 }

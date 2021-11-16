@@ -66,9 +66,20 @@ GET https://api.tdu.app/log?id=[id]
 
 ```text
 POST https://api.tdu.app/log
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
-id=[id]&date=[date]&campus=[campus]&log_type=[type]&code=[code]
+{
+    id: [id]
+    logs: [
+        {
+            date: [date],
+            campus: [campus],
+            log_type: [log type],
+            label: [label],
+            code: code
+        }
+    ]
+}
 ```
 
 - form

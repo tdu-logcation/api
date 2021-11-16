@@ -41,7 +41,7 @@ func TestUser(t *testing.T) {
 	// ------
 	// ログ数カウント
 	for i := 0; 10 > i; i++ {
-		if err := user.PlusLog(id); err != nil {
+		if err := user.PlusLog(id, 1); err != nil {
 			t.Fatal(err)
 		}
 	}
@@ -153,24 +153,18 @@ func TestRank(t *testing.T) {
 	time.Sleep(1 * time.Second)
 
 	// ユーザ1(Okayu): ログ数5
-	for i := 0; 5 > i; i++ {
-		if err := user1.PlusLog(info1.Id); err != nil {
-			t.Fatal(err)
-		}
+	if err := user1.PlusLog(info1.Id, 5); err != nil {
+		t.Fatal(err)
 	}
 
 	// ユーザ2(EVA): ログ数3
-	for i := 0; 3 > i; i++ {
-		if err := user2.PlusLog(info2.Id); err != nil {
-			t.Fatal(err)
-		}
+	if err := user2.PlusLog(info2.Id, 3); err != nil {
+		t.Fatal(err)
 	}
 
 	// ユーザ3(Godzilla): ログ数7
-	for i := 0; 7 > i; i++ {
-		if err := user3.PlusLog(info3.Id); err != nil {
-			t.Fatal(err)
-		}
+	if err := user3.PlusLog(info3.Id, 7); err != nil {
+		t.Fatal(err)
 	}
 
 	// 反映される待つ！
