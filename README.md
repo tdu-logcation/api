@@ -69,14 +69,14 @@ POST https://api.tdu.app/log
 Content-Type: application/json
 
 {
-    id: [id]
-    logs: [
+    "id": [id]
+    "logs": [
         {
-            date: [date],
-            campus: [campus],
-            log_type: [log type],
-            label: [label],
-            code: code
+            "date": [date],
+            "campus": [campus],
+            "log_type": [log type],
+            "label": [label],
+            "code": code
         }
     ]
 }

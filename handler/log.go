@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"encoding/json"
 	"net/http"
 	"time"
 
@@ -90,7 +89,7 @@ func LogPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	var logs Logs
 
-	json.NewDecoder(r.Body).Decode(&logs)
+	utils.PostGetJson(w, r, &logs)
 
 	user, err := controller.NewUser(&ctx)
 	if err != nil {
